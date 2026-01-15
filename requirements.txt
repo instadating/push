@@ -1,0 +1,10 @@
+Flask
+pymongo
+pywebpush
+python-dotenv
+Flask
+Flask-PyMongo
+pymongo
+Werkzeug
+gunicorn
+

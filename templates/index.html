@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flask Push</title>
+</head>
+<body style="text-align:center;">
+  <h2>Enable Notifications</h2>
+  <button onclick="subscribe()">Enable Notifications</button>
+<button onclick="send()">Send Test</button>
+
+
+  
+<script src="/static/main.js"></script>
+<script>
+  window.onload = function () {
+    console.log("Page fully loaded");
+
+    // call your functions here
+     subscribe();   // ⚠️ only if you REALLY want auto subscribe
+    // send();        // optional
+
+    // or run any custom script
+};
+</script>
+</body>
+</html>
