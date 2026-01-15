@@ -6,34 +6,31 @@ self.addEventListener("push", event => {
   }
 
   event.waitUntil(
-    self.registration.showNotification("🚀 Push Test", {
+    self.registration.showNotification("🚨 Flask Push Alert", {
       body: data,
+
+      // 🔰 MAIN LOGO (shows on notification)
       icon: "/static/icon.png",
-      badge: "/static/icon.png",   // optional small icon
-      requireInteraction: true,     // stays until user interacts
+
+      // 🔹 SMALL STATUS BAR LOGO (Android / Chrome)
+      badge: "/static/badge.png",
+
+      // 🖼️ BIG IMAGE (optional – looks premium)
+      image: "/static/banner.png",
+
+      requireInteraction: true,
       silent: false,
-      tag: "push-test",             // prevents duplicate stacking
-      renotify: false,
-      actions: []                   // ❌ no unsubscribe button
+      tag: "flask-push",
+      renotify: false
     })
   );
 });
 
-// Handle notification click
+// Click handler
 self.addEventListener("notificationclick", event => {
   event.notification.close();
 
   event.waitUntil(
-    clients.matchAll({ type: "window", includeUncontrolled: true }).then(clientList => {
-      for (const client of clientList) {
-        if (client.url === "/" && "focus" in client) {
-          return client.focus();
-        }
-      }
-      if (clients.openWindow) {
-        return clients.openWindow("/");
-      }
-    })
+    clients.openWindow("/")
   );
 });
-
