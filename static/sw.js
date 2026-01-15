@@ -9,7 +9,7 @@ self.addEventListener("push", event => {
     self.registration.showNotification("🚀 Push Test", {
       body: data,
       icon: "/static/icon.png",
-      badge: "/static/badge.png",   // optional small icon
+      badge: "/static/icon.png",   // optional small icon
       requireInteraction: true,     // stays until user interacts
       silent: false,
       tag: "push-test",             // prevents duplicate stacking
@@ -36,3 +36,4 @@ self.addEventListener("notificationclick", event => {
     })
   );
 });
+
